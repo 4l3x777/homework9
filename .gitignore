@@ -1,3 +1,11 @@
+# vscode
+.vscode
+libasync*
+TODO
+
+# cmake
+/build/
+
 # Prerequisites
 *.d
 
