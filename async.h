@@ -1,5 +1,7 @@
 #pragma once
 
+#include <iostream>
+
 #if defined(_WIN32)
     //  Microsoft 
     #define EXPORT __declspec(dllexport)

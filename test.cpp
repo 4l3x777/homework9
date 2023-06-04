@@ -1,12 +1,14 @@
 #include <iostream>
 #include <thread>
+#include <string>
 #include "async.h"
 
 void tasks(std::string info)
 {
     auto context = connect(2);
 
-    std::cout << info << " context: " << std::to_string(context)  << std::endl;
+    std::string message = info + " context: " + std::to_string(context) + "\n";
+    std::cout << message;
 
     receive("cmd1", 4, context);
     receive("cmd2", 4, context);
@@ -22,11 +24,13 @@ void tasks(std::string info)
 
     receive("{", 1, context);
     receive("cmd2", 4, context);
-    receive("EOF", 1, context);
+    receive("EOF", 3, context);
 
     std::this_thread::sleep_for(std::chrono::duration<double, std::milli>(5000));
     disconnect(context);
-    std::cout << info << " exit" << std::endl;
+    
+    message = info + " exit" + "\n";
+    std::cout << message;
 }
 
 int main(int argc, char* argv[])

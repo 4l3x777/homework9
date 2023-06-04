@@ -48,8 +48,8 @@ if (MSVC)
     target_compile_options(async PRIVATE /W4)
     target_compile_options(test PRIVATE /W4)
 else ()
-    target_link_options(test PRIVATE -static -static-libgcc -static-libstdc++)
-    target_link_options(async PRIVATE -shared -static -static-libgcc -static-libstdc++)
+    target_link_options(test PRIVATE -static-libgcc -static-libstdc++)
+    target_link_options(async PRIVATE -shared -static-libgcc -static-libstdc++)
 
     target_compile_options(
         async 
